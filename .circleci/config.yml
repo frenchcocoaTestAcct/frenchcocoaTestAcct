@@ -35,7 +35,6 @@ jobs:
       - run:
           name: "Say world"
           command: "echo World!"
-      - requires: print_hello
       
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -44,3 +43,7 @@ workflows:
  welcome:
     jobs:
       - welcome/run
+      - print_hello
+      - print_world:
+          requires:
+            - print_hello
