@@ -58,4 +58,6 @@ workflows:
       - print_world:
           requires:
             - print_hello
-      - print_name_var
+      - print_name_var:
+          requires:
+            - print_world
